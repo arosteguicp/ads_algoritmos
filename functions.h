@@ -10,6 +10,8 @@ using namespace std;
 
 template <typename arr>
 void countsort(arr& arreglo){
+    if (arreglo.empty()) { return; };
+
     // O(n+k)
     // k is the max value of the array
     // n is the size of the array
@@ -41,6 +43,15 @@ ostream& operator<<(ostream& os, const vector<long int>& array){
     return os;
 }
 
+template <typename arr>
+arr generar_arreglo(long int n, long int min, long int max){
+    arr arreglo(n);
+    for(auto i=0; i < n; i++){
+        arreglo.push_back(rand()%(max-min+1)+min);
+    }
+    return arreglo;
+}
+
 vector<long int> generar_arreglo(long int n, long int min, long int max){
     vector<long int> arreglo(n);
     for(auto i=0; i < n; i++){
@@ -51,6 +62,8 @@ vector<long int> generar_arreglo(long int n, long int min, long int max){
 
 template <typename arr>
 void radix_sort(arr& array){
+    if (array.empty()) { return; };
+
     // O(d(n+b))
     // n is the size of the array
     // b is the base, 10 in this case
