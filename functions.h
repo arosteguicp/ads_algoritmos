@@ -14,25 +14,27 @@ void countsort(arr& arreglo){
     // k is the max value of the array
     // n is the size of the array
     arr ordenado(arreglo.size(), 0);
-    int max = *max_element(arreglo.begin(), arreglo.end());
-    arr conteo(max+1,0);
+    long int max = *max_element(arreglo.begin(), arreglo.end());
+    arr conteo(max+1);
 
-    for(int i = 0;i < arreglo.size();i++){
+    for(auto i = 0;i < arreglo.size();i++){
         conteo[arreglo[i]+1]++;
     }
 
-    for(int i = 2;i <= max+1;i++){
+    for(auto i = 2;i < max+1;i++){
         conteo[i] += conteo[i-1];
     }
 
-    for(int i = 0;i <arreglo.size();i++){
+    for(auto i = 0;i <arreglo.size();i++){
         ordenado[conteo[arreglo[i]]++] = arreglo[i];
     }
-    arreglo = ordenado;
+    
+    arreglo = std::move(ordenado);
+
 }
 
-ostream& operator<<(ostream& os, const vector<int>& array){
-    for(int i : array){
+ostream& operator<<(ostream& os, const vector<long int>& array){
+    for(long int i : array){
         os << i << " ";
     }
     os << endl;
@@ -40,9 +42,9 @@ ostream& operator<<(ostream& os, const vector<int>& array){
 }
 
 template <typename arr>
-arr generar_arreglo(int n, int min, int max){
+arr generar_arreglo(long int n, long int min, long int max){
     arr arreglo;
-    for(int i=0; i < n; i++){
+    for(auto i=0; i < n; i++){
         arreglo.push_back(rand()%(max-min+1)+min);
     }
     return arreglo;

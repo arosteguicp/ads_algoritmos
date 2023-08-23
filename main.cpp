@@ -4,12 +4,12 @@ int main(){
     srand(time(0)); //semilla
 
     //inicializar n
-    int n = 1000000;
+    long int n = 10000000;
     //inicializar K
-    int min = 70000000;
-    int max = 90000000;
+    long int min = 70000000;
+    long int max = 90000000;
 
-    vector<int> arreglo1 = generar_arreglo<vector<int>>(n,min,max);
+    vector<long int> arreglo1 = generar_arreglo<vector<long int>>(n,min,max);
 //    cout << "Arreglo 1 desordenado:\n " << arreglo1;
 //    cout <<"Arreglo 1 ordenado:\n ";
     //medir tiempo
@@ -24,7 +24,7 @@ int main(){
     
 
     //radix sort
-    vector<int> arreglo2 = generar_arreglo<vector<int>>(n,min,max);
+    vector<long int> arreglo2 = generar_arreglo<vector<long int>>(n,min,max);
 //    cout << "Arreglo 2 desordenado:\n " << arreglo2;
 //    cout <<"Arreglo 2 ordenado:\n ";
     //medir tiempo
@@ -33,7 +33,7 @@ int main(){
 //    cout << arreglo2;
     auto end_time2 = chrono::high_resolution_clock::now();
     //tiempo en ms
-    auto duration2 = chrono::duration_cast<chrono::milliseconds>(end_time2 - start_time);
+    auto duration2 = chrono::duration_cast<chrono::milliseconds>(end_time2 - start_time2);
     cout << boolalpha << is_sorted(arreglo2.begin(),arreglo2.end()) << endl;
     cout << "Tiempo de ejecucion para el arreglo2: " << duration2.count() << " ms" <<endl;
     return 0;
