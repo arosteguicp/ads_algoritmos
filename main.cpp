@@ -7,7 +7,7 @@ int main(){
 
     // |===| tester with custom arrs.
     // vectores con tamaño de datos de entrada para comparar eficiencia
-    std::vector<long int> tester_sizes = {1, 20000};
+    std::vector<long int> tester_sizes = {0, 20000, 40000, 60000, 80000, 100000, 300000, 600000, 800000, 1000000, 5000000, 10000000};
     std::ofstream file("tester_times.txt");
 
     for(long int current_size : tester_sizes){
@@ -39,7 +39,8 @@ int main(){
         //tiempo en ms
         auto duration2 = chrono::duration_cast<chrono::milliseconds>(end_time2 - start_time2);
         cout << boolalpha << is_sorted(array_radix_sort.begin(),array_radix_sort.end()) << endl;
-        file << current_size << "/radix_sort/" << duration.count() << endl;
+        cout << "Tiempo de ejecucion para el array_radix_sort: " << duration2.count() << " ms" <<endl << string(50,'-') << endl;
+        file << current_size << "/radix_sort/" << duration2.count() << endl;
     };
 
     file.close();
