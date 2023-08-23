@@ -13,6 +13,7 @@ int main(){
 //    cout <<"Arreglo 1 ordenado:\n ";
     //medir tiempo
     auto start_time = chrono::high_resolution_clock::now();
+    countsort(arreglo1);
 //    cout << countsort(arreglo1) << endl << endl;
     auto end_time = chrono::high_resolution_clock::now();
     //tiempo en ms

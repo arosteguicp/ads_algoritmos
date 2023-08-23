@@ -9,24 +9,23 @@
 using namespace std;
 
 template <typename arr>
-arr countsort(arr arreglo){
+void countsort(arr& arreglo){
     arr ordenado(arreglo.size(), 0);
     int max = *max_element(arreglo.begin(), arreglo.end());
     arr conteo(max+1,0);
 
     for(int i = 0;i < arreglo.size();i++){
-        conteo[arreglo[i]]++;
+        conteo[arreglo[i]+1]++;
     }
 
-    for(int i = 1;i <= max;i++){
+    for(int i = 2;i <= max+1;i++){
         conteo[i] += conteo[i-1];
     }
 
     for(int i = 0;i <arreglo.size();i++){
-        ordenado[conteo[arreglo[i]]-1] = arreglo[i];
-        conteo[arreglo[i]] -= 1;
+        ordenado[conteo[arreglo[i]]++] = arreglo[i];
     }
-    return ordenado;
+    arreglo = ordenado;
 }
 
 ostream& operator<<(ostream& os, const vector<int>& array){
