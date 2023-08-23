@@ -10,6 +10,8 @@ using namespace std;
 
 template <typename arr>
 void countsort(arr& arreglo){
+    if (arreglo.empty()) { return; };
+
     // O(n+k)
     // k is the max value of the array
     // n is the size of the array
@@ -52,6 +54,8 @@ arr generar_arreglo(long int n, long int min, long int max){
 
 template <typename arr>
 void radix_sort(arr& array){
+    if (array.empty()) { return; };
+
     // O(d(n+b))
     // n is the size of the array
     // b is the base
