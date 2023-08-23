@@ -4,34 +4,32 @@ int main(){
     srand(time(0)); //semilla
 
     //inicializar n
-    int n = 100;
+    int n = 1000000;
     //inicializar K
-    int k = 900;
-    //manual
-    vector<int> sin_ordenar = {6,1,1,1,1,1,15};
-    cout <<"Arreglo 1 ordenado: " << endl;
-    cout << countsort(sin_ordenar)<< endl;
+    int k = 90000;
 
-    //con funciones
-    //experimentacion
-
-
-
-    vector<int> sin_ordenar2 = generar_arreglo<vector<int>>(n,k);
-    cout << sin_ordenar2 << endl;
-    cout <<"Arreglo 2 ordenado: " << endl;
+    vector<int> arreglo1 = generar_arreglo<vector<int>>(n,k);
+//    cout << "Arreglo 1 desordenado:\n " << arreglo1 << endl << endl;
+//    cout <<"Arreglo 1 ordenado:\n ";
     //medir tiempo
     auto start_time = chrono::high_resolution_clock::now();
-    cout << countsort(sin_ordenar2);
+//    cout << countsort(arreglo1) << endl << endl;
     auto end_time = chrono::high_resolution_clock::now();
     //tiempo en ms
     auto duration = chrono::duration_cast<chrono::milliseconds>(end_time - start_time);
-    cout << "Tiempo de ejecucion: " << duration.count() << " ms" <<endl;
+    cout << "Tiempo de ejecucion para el arreglo1: " << duration.count() << " ms" <<endl;
 
     //radix sort
-    vector<int> v = {1999, 2003, 1955, 1997, 2005, 2010, 2015, 2019, 2020};
-    cout << v << endl;
-    radix_sort(v);
-    cout << v << endl;
+    vector<int> arreglo2 = generar_arreglo<vector<int>>(n,k);
+//    cout << "Arreglo 2 desordenado:\n " << arreglo1 << endl << endl;
+//    cout <<"Arreglo 2 ordenado:\n ";
+    //medir tiempo
+    auto start_time2 = chrono::high_resolution_clock::now();
+    radix_sort(arreglo2);
+//    cout << arreglo2 << endl << endl;
+    auto end_time2 = chrono::high_resolution_clock::now();
+    //tiempo en ms
+    auto duration2 = chrono::duration_cast<chrono::milliseconds>(end_time2 - start_time);
+    cout << "Tiempo de ejecucion para el arreglo2: " << duration2.count() << " ms" <<endl;
     return 0;
 }

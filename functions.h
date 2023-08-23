@@ -54,21 +54,21 @@ void radix_sort(arr& array){
     int base = 10;
     int d = log10(*max_element(array.begin(), array.end()))+1; 
     int N = array.size();
+    arr temp(N,0);
     arr* in = &array;
-    arr temp(N);
     arr* out = &temp;
     for(int i{};i<d;++i){
-        arr count(base+1);
+        arr count(base+1,0);
+        int order = pow(10,i);
         for(int j{};j<N;++j){
-            ++count[((*in)[j]/(int)pow(10,i))%10+1];
+            ++count[((*in)[j]/order)%10+1];
         }
         for(int k=2;k<base+1;++k){
             count[k] += count[k-1];
         }
         for(int l{};l<N;++l){
-            (*out)[count[((*in)[l]/(int)pow(10,i))%10]++] = (*in)[l];
+            (*out)[count[((*in)[l]/order)%10]++] = (*in)[l];
         }
         swap(in, out);
     }
-
 }
