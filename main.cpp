@@ -43,17 +43,19 @@ int main(){
         
 
         // |===| bubble_sort
-        vector<long int> array_bubble_sort = generar_arreglo<vector<long int>>(current_size, min, max);
-        // medir tiempo
-        auto start_time3 = chrono::high_resolution_clock::now();
-        bubble_sort(array_bubble_sort);
-        auto end_time3 = chrono::high_resolution_clock::now();
-        // tiempo en ms
-        auto duration3 = chrono::duration_cast<chrono::milliseconds>(end_time3 - start_time3);
-        cout << boolalpha << is_sorted(array_bubble_sort.begin(), array_bubble_sort.end()) << endl;
-        cout << "Tiempo de ejecucion para el array_bubble_sort: " << duration3.count() << " ms" << endl << string(50, '-') << endl;
-        file << current_size << ",bubble_sort," << duration3.count() << endl;
-
+        if (current_size <= 600000){
+            vector<long int> array_bubble_sort = generar_arreglo<vector<long int>>(current_size, min, max);
+            // medir tiempo
+            auto start_time3 = chrono::high_resolution_clock::now();
+            bubble_sort(array_bubble_sort);
+            auto end_time3 = chrono::high_resolution_clock::now();
+            // tiempo en ms
+            auto duration3 = chrono::duration_cast<chrono::milliseconds>(end_time3 - start_time3);
+            cout << boolalpha << is_sorted(array_bubble_sort.begin(), array_bubble_sort.end()) << endl;
+            cout << "Tiempo de ejecucion para el array_bubble_sort: " << duration3.count() << " ms" << endl << string(50, '-') << endl;
+            file << current_size << ",bubble_sort," << duration3.count() << endl;
+        };
+        
         std::cout << "\n" << std::endl;
     };
 
