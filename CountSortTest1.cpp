@@ -1,4 +1,5 @@
 #include "functions.h" 
+#include <fstream>
 
 //Experimentacion de counting_sort n < k
 int main() {
@@ -8,7 +9,7 @@ int main() {
     std::vector<chrono::milliseconds> algorithm_times;
 
     for (long int n : data_sizes) {
-        long int min_value = static_cast<long int>(n * 10);
+        long int min_value = static_cast<long int>(n);
         long int max_value = static_cast<long int>(n * 100); 
         std::vector<long int> arreglo = generar_arreglo<std::vector<long int>>(n, min_value , max_value);
 
@@ -23,6 +24,14 @@ int main() {
     for (int i = 0; i < data_sizes.size(); ++i) {
         std::cout << "n = " << data_sizes[i] << ", Time: " << algorithm_times[i].count() << " ms" << std::endl;
     }
+
+    std::ofstream outputFile("CountSortTest1.csv");
+
+    for (int i = 0; i < data_sizes.size(); ++i) {
+        outputFile << data_sizes[i] << "," << algorithm_times[i].count() << "\n";
+    }
+
+    outputFile.close();
 
     return 0;
 }
