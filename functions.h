@@ -15,18 +15,18 @@ void countsort(arr& arreglo){
     // n is the size of the array
     arr ordenado(arreglo.size(), 0);
     long int max = *max_element(arreglo.begin(), arreglo.end());
-    arr conteo(max+1);
+    arr counter(max+2);
 
     for(auto i = 0;i < arreglo.size();i++){
-        conteo[arreglo[i]+1]++;
+        counter[arreglo[i]+1]++;
     }
 
-    for(auto i = 2;i < max+1;i++){
-        conteo[i] += conteo[i-1];
+    for(auto i = 2;i < max+2;i++){
+        counter[i] += counter[i-1];
     }
 
     for(auto i = 0;i <arreglo.size();i++){
-        ordenado[conteo[arreglo[i]]++] = arreglo[i];
+        ordenado[counter[arreglo[i]]++] = arreglo[i];
     }
     
     arreglo = std::move(ordenado);
@@ -41,9 +41,8 @@ ostream& operator<<(ostream& os, const vector<long int>& array){
     return os;
 }
 
-template <typename arr>
-arr generar_arreglo(long int n, long int min, long int max){
-    arr arreglo;
+vector<long int> generar_arreglo(long int n, long int min, long int max){
+    vector<long int> arreglo(n);
     for(auto i=0; i < n; i++){
         arreglo.push_back(rand()%(max-min+1)+min);
     }
@@ -54,7 +53,7 @@ template <typename arr>
 void radix_sort(arr& array){
     // O(d(n+b))
     // n is the size of the array
-    // b is the base
+    // b is the base, 10 in this case
     // d is the exponent of b
     int base = 10;
     int d = log10(*max_element(array.begin(), array.end()))+1; 

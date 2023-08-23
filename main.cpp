@@ -9,7 +9,7 @@ int main(){
     long int min = 70000000;
     long int max = 90000000;
 
-    vector<long int> arreglo1 = generar_arreglo<vector<long int>>(n,min,max);
+    vector<long int> arreglo1 = generar_arreglo(n,min,max);
 //    cout << "Arreglo 1 desordenado:\n " << arreglo1;
 //    cout <<"Arreglo 1 ordenado:\n ";
     //medir tiempo
@@ -24,7 +24,7 @@ int main(){
     
 
     //radix sort
-    vector<long int> arreglo2 = generar_arreglo<vector<long int>>(n,min,max);
+    vector<long int> arreglo2 = generar_arreglo(n,min,max);
 //    cout << "Arreglo 2 desordenado:\n " << arreglo2;
 //    cout <<"Arreglo 2 ordenado:\n ";
     //medir tiempo
