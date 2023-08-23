@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-void bubble_sort(vector<int>& arr) {
+void bubble_sort(vector<long int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n-1; i++) {
         for (int j = 0; j < n-i-1; j++) {
