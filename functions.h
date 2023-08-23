@@ -10,6 +10,9 @@ using namespace std;
 
 template <typename arr>
 void countsort(arr& arreglo){
+    // O(n+k)
+    // k is the max value of the array
+    // n is the size of the array
     arr ordenado(arreglo.size(), 0);
     int max = *max_element(arreglo.begin(), arreglo.end());
     arr conteo(max+1,0);
@@ -37,10 +40,10 @@ ostream& operator<<(ostream& os, const vector<int>& array){
 }
 
 template <typename arr>
-arr generar_arreglo(int n, int k){
+arr generar_arreglo(int n, int min, int max){
     arr arreglo;
     for(int i=0; i < n; i++){
-        arreglo.push_back(rand()%(k+1));
+        arreglo.push_back(rand()%(max-min+1)+min);
     }
     return arreglo;
 }
@@ -48,6 +51,7 @@ arr generar_arreglo(int n, int k){
 template <typename arr>
 void radix_sort(arr& array){
     // O(d(n+b))
+    // n is the size of the array
     // b is the base
     // d is the exponent of b
     int base = 10;
