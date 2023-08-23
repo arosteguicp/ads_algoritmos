@@ -24,5 +24,13 @@ int main() {
         std::cout << "n = " << data_sizes[i] << ", Time: " << algorithm_times[i].count() << " ms" << std::endl;
     }
 
+    std::ofstream outputFile("CountSortTest1.csv");
+
+    for (int i = 0; i < data_sizes.size(); ++i) {
+        outputFile << data_sizes[i] << "," << algorithm_times[i].count() << "\n";
+    }
+
+    outputFile.close();
+
     return 0;
 }
