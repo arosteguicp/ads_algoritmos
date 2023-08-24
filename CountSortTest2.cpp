@@ -1,4 +1,5 @@
 #include "functions.h" 
+#include <fstream>
 
 //Experimentacion de counting_sort n < k
 int main() {

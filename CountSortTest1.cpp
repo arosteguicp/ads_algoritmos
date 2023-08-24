@@ -9,8 +9,8 @@ int main() {
     std::vector<chrono::milliseconds> algorithm_times;
 
     for (long int n : data_sizes) {
-        long int min_value = 10000000000;
-        long int max_value = 100000000000; 
+        long int min_value = 10000000;
+        long int max_value = 100000000; 
 //        std::vector<long int> arreglo = {1000,1001,1002,1003,1004,1005,1006,1007,1008,1009};
         try{
             std::vector<long int> arreglo = generar_arreglo(n, min_value , max_value);
