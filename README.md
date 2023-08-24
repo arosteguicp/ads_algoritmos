@@ -11,6 +11,6 @@
 ## 2. Diagrams & Charts
 
 <p align="center">
-    <img src="src/img_bubble.png"/>
-    <img src="src/img_sort.png"/>
+    <img src="src/img_bubble.png" width=500/>
+    <img src="src/img_sort.png" width=500/>
 </p>
