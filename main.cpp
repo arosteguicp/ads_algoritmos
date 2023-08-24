@@ -7,7 +7,7 @@ int main(){
 
     // |===| tester with custom arrs.
     // vectores con tamaño de datos de entrada para comparar eficiencia
-    std::vector<long int> tester_sizes = {0, 20000, 40000, 60000, 80000, 100000, 300000, 600000, 800000, 1000000, 5000000, 10000000};
+    std::vector<long int> tester_sizes = {0, 20000, 40000, 60000, 80000, 100000, 300000, 600000, 800000, 1000000};
     std::ofstream file("tester_times.csv");
 
     for(long int current_size : tester_sizes){
