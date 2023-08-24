@@ -1,7 +1,7 @@
 #include "functions.h" 
 #include <fstream>
 
-//Experimentacion de counting_sort n < k
+//Experimentacion de counting_sort n > k
 int main() {
     srand(time(NULL)); // Inicializar semilla para generar valores aleatorios
 
@@ -9,8 +9,8 @@ int main() {
     std::vector<chrono::milliseconds> algorithm_times;
 
     for (long int n : data_sizes) {
-        long int min_value = 10000000;
-        long int max_value = 100000000; 
+        long int min_value = static_cast<long int>(n * 0.1);
+        long int max_value = static_cast<long int>(n - 1); 
         std::vector<long int> arreglo = generar_arreglo<std::vector<long int>>(n, min_value , max_value);
 
         auto start_time = std::chrono::high_resolution_clock::now();
