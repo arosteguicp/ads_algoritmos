@@ -43,7 +43,7 @@ int main(){
         
 
         // |===| bubble_sort
-        if (current_size <= 600000){
+        if (current_size <= 100000){
             vector<long int> array_bubble_sort = generar_arreglo<vector<long int>>(current_size, min, max);
             // medir tiempo
             auto start_time3 = chrono::high_resolution_clock::now();
@@ -54,8 +54,10 @@ int main(){
             cout << boolalpha << is_sorted(array_bubble_sort.begin(), array_bubble_sort.end()) << endl;
             cout << "Tiempo de ejecucion para el array_bubble_sort: " << duration3.count() << " ms" << endl << string(50, '-') << endl;
             file << current_size << ",bubble_sort," << duration3.count() << endl;
+        } else {
+            file << current_size << ",bubble_sort," << 0 << endl;
         };
-        
+
         std::cout << "\n" << std::endl;
     };
 
