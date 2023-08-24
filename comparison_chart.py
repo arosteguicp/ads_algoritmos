@@ -5,13 +5,15 @@ import pandas as pd;
 # read data generated from main
 df = pd.read_csv("tester_times.csv", header=None, names=["size", "sort", "time"])
 
-countsort_times = df[df["sort"] == "count_sort"]["time"].tolist()
-radix_times = df[df["sort"] == "radix_sort"]["time"].tolist()
-sizes = df[df["sort"] == "radix_sort"]["size"].tolist()
+countsort_times = df[df["sort"] == "count_sort"]["time"].tolist();
+radix_times = df[df["sort"] == "radix_sort"]["time"].tolist();
+bubble_times = df[df["sort"] == "bubble_sort"]["time"].tolist();
+sizes = df[df["sort"] == "radix_sort"]["size"].tolist();
 
 # |====| plot section 
-plt.plot(sizes, countsort_times, label='Counting Sort', marker='o')
-plt.plot(sizes, radix_times, label='Radix Sort', marker='o')
+plt.plot(sizes, countsort_times, label='Counting Sort', marker='*');
+plt.plot(sizes, radix_times, label='Radix Sort', marker='*');
+plt.plot(sizes, bubble_times, label='Bubble Sort', marker='*');
 
 plt.xlabel('Cantidad de elementos')
 plt.ylabel('Tiempo (ms)')
